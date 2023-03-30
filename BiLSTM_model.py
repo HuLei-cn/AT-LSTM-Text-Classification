@@ -5,10 +5,10 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 
 
-class BiLSTM(torch.nn.Module):
+class AT_BiLSTM(torch.nn.Module):
     def __init__(self, vocab, batch_size=128, output_size=2, hidden_size=256, embed_dim=300,
                  dropout=0.1, use_cuda=True, attention_size=256, sequence_length=512, bidirectional=True):
-        super(BiLSTM, self).__init__()
+        super(AT_BiLSTM, self).__init__()
         self.batch_size = batch_size
         self.output_size = output_size
         self.hidden_size = hidden_size
