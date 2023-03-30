@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 
 from data_preprocess import load_imdb
 from utils import set_seed
-from BiLSTM_model import BiLSTM
+from AT_BiLSTM_model import AT_BiLSTM
 
 
 # 设置随机种子，保障程序的可复现性
@@ -33,7 +33,7 @@ train_loader = DataLoader(train_data, batch_size=BATCH_SIZE, shuffle=True, drop_
 test_loader = DataLoader(test_data, batch_size=BATCH_SIZE, drop_last=True)
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'  # GPU训练
-model = BiLSTM(vocab).cuda().to(device)
+model = AT_BiLSTM(vocab).cuda().to(device)
 print(model)
 criterion = nn.CrossEntropyLoss()  # 获取损失函数
 optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE, weight_decay=5e-4)  # 获取优化器
